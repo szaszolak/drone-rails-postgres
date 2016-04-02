@@ -8,7 +8,7 @@ RUN apt-get update && \
     apt-get install -y build-essential \
     libfreetype6 \
     libfontconfig1 libicu-dev wkhtmltopdf \
-    libpq-dev postgresql-client nodejs && \
+    libpq-dev postgresql-client nodejs npm && \
     rm -rf /var/lib/apt/lists/* && \
     wget -O - https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_VERSION.tar.bz2 | tar xj && \
     mv $PHANTOM_VERSION/bin/phantomjs /usr/local/bin/ && rm -rf $PHANTOM_VERSION/

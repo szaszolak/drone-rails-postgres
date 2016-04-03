@@ -11,7 +11,7 @@ RUN wget -q -O - https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_VERSIO
 RUN apt-get update && \
     apt-get install -y build-essential \
     libicu-dev wkhtmltopdf \
-    postgresql-client libssl-dev && \
+    postgresql-client && \
     rm -rf /var/lib/apt/lists/*
 
 RUN curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.0/install.sh | bash && \

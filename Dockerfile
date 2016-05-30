@@ -1,4 +1,4 @@
-FROM ruby:2.3.0
+FROM ruby:2.3.1
 
 ENV PHANTOM_VERSION phantomjs-2.1.1-linux-x86_64
 ENV NVM_DIR /nvm

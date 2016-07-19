@@ -24,4 +24,4 @@ RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install
     nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 
 COPY ./ext /ext
-RUN cd /ext && make && make install && sed -i "s/hosts:*/hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 prax/" /etc/nsswitch.conf && rm -rf /ext
+RUN cd /ext && make && make install && sed -i "s/hosts:.*/hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 prax/" /etc/nsswitch.conf && rm -rf /ext

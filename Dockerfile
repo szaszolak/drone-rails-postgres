@@ -12,7 +12,7 @@ RUN curl -L -s https://bitbucket.org/ariya/phantomjs/downloads/$PHANTOM_VERSION.
 RUN apt-get update && \
     apt-get install -y build-essential \
     libicu-dev \
-    postgresql-client && \
+    postgresql-client libpq-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN wget -q http://download.gna.org/wkhtmltopdf/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz -O wkhtmltox.tar.xz && \

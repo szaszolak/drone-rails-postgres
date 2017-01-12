@@ -1,8 +1,8 @@
-FROM ruby:2.3.1
+FROM ruby:2.4.0
 
 ENV PHANTOM_VERSION phantomjs-2.1.1-linux-x86_64
 ENV NVM_DIR /nvm
-ENV NODE_VERSION 5.1
+ENV NODE_VERSION 7.4.0
 ENV PRAX_DOMAINS=dev,me
 RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 
@@ -15,11 +15,11 @@ RUN apt-get update && \
     postgresql-client && \
     rm -rf /var/lib/apt/lists/*
 
-RUN wget -q http://download.gna.org/wkhtmltopdf/0.12/0.12.3/wkhtmltox-0.12.3_linux-generic-amd64.tar.xz -O wkhtmltox.tar.xz && \
+RUN wget -q http://download.gna.org/wkhtmltopdf/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz -O wkhtmltox.tar.xz && \
     tar xf wkhtmltox.tar.xz && \
     mv wkhtmltox/bin/* /usr/local/bin/ && rm -Rf wkhtmltox*
 
-RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.1/install.sh | bash && \
+RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash && \
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 

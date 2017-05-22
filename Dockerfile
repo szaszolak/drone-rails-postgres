@@ -17,11 +17,17 @@ RUN apt-get update && \
 
 RUN wget -q http://download.gna.org/wkhtmltopdf/0.12/0.12.4/wkhtmltox-0.12.4_linux-generic-amd64.tar.xz -O wkhtmltox.tar.xz && \
     tar xf wkhtmltox.tar.xz && \
-    mv wkhtmltox/bin/* /usr/local/bin/ && rm -Rf wkhtmltox*
+    mv wkhtmltox/bin/* /usr/local/bin/ && \
+    rm -Rf wkhtmltox*
 
 RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash && \
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
+
+RUN wget -q https://github.com/yarnpkg/yarn/releases/download/v0.24.5/yarn-v0.24.5.tar.gz -O yarn.tar.gz && \
+    tar xf yarn.tar.gz && \
+    mv ./dist/bin/* /usr/local/bin/ && \
+    rm -Rf ./yarn.tar.gz ./dist
 
 COPY ./ext /ext
 RUN cd /ext && make && make install && sed -i "s/hosts:.*/hosts: files mdns4_minimal [NOTFOUND=return] dns mdns4 prax/" /etc/nsswitch.conf && rm -rf /ext

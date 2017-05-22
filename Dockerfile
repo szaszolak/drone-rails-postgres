@@ -27,6 +27,7 @@ RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install
 RUN wget -q https://github.com/yarnpkg/yarn/releases/download/v0.24.5/yarn-v0.24.5.tar.gz -O yarn.tar.gz && \
     tar xf yarn.tar.gz && \
     mv ./dist/bin/* /usr/local/bin/ && \
+    mv ./dist/lib/* /usr/local/lib/ && \
     rm -Rf ./yarn.tar.gz ./dist
 
 COPY ./ext /ext

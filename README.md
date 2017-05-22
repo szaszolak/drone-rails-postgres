@@ -9,4 +9,5 @@ Extras:
 - libs for bundling pg
 - wkhtmltopdf 0.12.4
 - nvm 0.33.0 with node 7.4.0
+- yarn 0.24.5
 - phantomjs 2.1.1

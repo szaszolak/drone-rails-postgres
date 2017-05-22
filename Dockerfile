@@ -24,7 +24,7 @@ RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 
-RUN wget -q https://yarnpkg.com/latest.tar.gz -O yarn.tar.gz && \
+RUN wget -q https://github.com/yarnpkg/yarn/releases/download/v0.24.5/yarn-v0.24.5.tar.gz -O yarn.tar.gz && \
     tar xf yarn.tar.gz && \
     mv ./dist/bin/* /usr/local/bin/ && \
     rm -Rf ./yarn.tar.gz ./dist

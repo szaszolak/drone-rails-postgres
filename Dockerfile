@@ -2,7 +2,7 @@ FROM ruby:2.4.0
 
 ENV PHANTOM_VERSION phantomjs-2.1.1-linux-x86_64
 ENV NVM_DIR /nvm
-ENV NODE_VERSION 7.1.0
+ENV NODE_VERSION 7.4.0
 ENV PRAX_DOMAINS=dev,me
 RUN echo 'gem: --no-rdoc --no-ri' >> "$HOME/.gemrc"
 
@@ -20,14 +20,13 @@ RUN wget -q https://github.com/wkhtmltopdf/wkhtmltopdf/releases/download/0.12.4/
     mv wkhtmltox/bin/* /usr/local/bin/ && \
     rm -Rf wkhtmltox*
 
-RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.31.7/install.sh | bash && \
+RUN curl -s -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh | bash && \
     . $NVM_DIR/nvm.sh && \
     nvm install $NODE_VERSION && nvm alias default $NODE_VERSION
 
 RUN wget -q https://github.com/yarnpkg/yarn/releases/download/v0.24.5/yarn-v0.24.5.tar.gz -O yarn.tar.gz && \
     tar xf yarn.tar.gz && \
     mv ./dist/bin/* /usr/local/bin/ && \
-    mv ./dist/lib/* /usr/local/lib/ && \
     rm -Rf ./yarn.tar.gz ./dist
 
 COPY ./ext /ext

@@ -1,6 +1,6 @@
 # positionly/drone-rails-postgres
 
-Based on official ruby 2.4.0 image (note: latest tag is still 2.3.1 for the time being)
+Based on official ruby 2.5.1 image.
 
 Extras:
 
